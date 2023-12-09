@@ -6,7 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import router from "@routes/Router";
 import store from "@store/Store";
 
-import GlobalStyle from "./globalStyle";
+import GlobalStyle from "./GlobalStyle";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
