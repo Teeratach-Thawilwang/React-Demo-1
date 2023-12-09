@@ -1,6 +1,7 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 import { SignFormState } from "@enums/SignFormState";
 import { SignFormStateInterface } from "@models/interfaces/SignFormStateInterface";
-import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: SignFormStateInterface = {
   isShow: false,

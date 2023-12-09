@@ -1,10 +1,11 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+
 import SignFormButton from "@components/web/SignFormButton";
 import { SignFormButtonPropsInterface } from "@models/interfaces/SignFormButtonPropsInterface";
-import { fill } from "@store/slices/signFormSlice";
-import { useAppDispatch, useAppSelector } from "@store/store";
+import { useAppDispatch, useAppSelector } from "@store/Store";
+import { fill } from "@store/slices/SignFormSlice";
 
-export default function RegisterForm(props: { out: boolean }) {
+export default function RegisterForm() {
   const dispatch = useAppDispatch();
   const signFormState = useAppSelector((state) => state.signForm);
   const registerProps: SignFormButtonPropsInterface = { $bgColor: "#152027" };
@@ -14,7 +15,7 @@ export default function RegisterForm(props: { out: boolean }) {
   }
 
   return (
-    <Box $out={props.out}>
+    <Box>
       <Input
         name="email"
         placeholder=" อีเมล"
@@ -44,13 +45,9 @@ export default function RegisterForm(props: { out: boolean }) {
   );
 }
 
-const Box = styled.div<{ $out: Boolean }>`
+const Box = styled.div`
   margin: 0;
   padding: 0;
-
-  visibility: ${(props) => (props.$out ? "hidden" : "visible")};
-  animation: ${(props) => (props.$out ? fadeOut : fadeIn)} 0.5s linear;
-  transition: visibility 0.5s linear;
 `;
 
 const Input = styled.input`
@@ -73,29 +70,5 @@ const Input = styled.input`
 
   &::placeholder {
     color: #787878;
-  }
-`;
-
-const fadeIn = keyframes`
-  from {
-    transform: translate(10px, 0px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translate(0px, 0px);
-    opacity: 1;
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    transform: translate(0px, 0px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translate(-10px, 0px);
-    opacity: 1;
   }
 `;

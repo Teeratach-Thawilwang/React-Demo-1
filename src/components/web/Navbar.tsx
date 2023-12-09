@@ -1,29 +1,33 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import homeIcon from "@assets/icon/home.svg";
-import categoryIcon from "@assets/icon/category.svg";
+
 import bookmarkIcon from "@assets/icon/bookmark.svg";
+import categoryIcon from "@assets/icon/category.svg";
+import homeIcon from "@assets/icon/home.svg";
 import searchIcon from "@assets/icon/search_icon.svg";
 import signinIcon from "@assets/icon/signin_icon.svg";
-import { setIsShow } from "@store/slices/signFormSlice";
-import { useAppDispatch } from "@store/store";
+import { useAppDispatch } from "@store/Store";
+import { setIsShow } from "@store/slices/SignFormSlice";
 
 export default function Navbar() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   return (
     <Box>
       <TabNavbar>
-        <Logo>
+        <Logo onClick={() => navigate("/")}>
           <p>Lunar</p>
         </Logo>
-        <Button>
+        <Button onClick={() => navigate("/")}>
           <img src={homeIcon} alt="HomeIcon" />
           <p>หน้าแรก</p>
         </Button>
-        <Button>
+        <Button onClick={() => navigate("/category")}>
           <img src={categoryIcon} alt="CategoryIcon" />
           <p>หมวดหมู่</p>
         </Button>
-        <Button>
+        <Button onClick={() => navigate("/bookmark")}>
           <img src={bookmarkIcon} alt="BookmarkIcon" />
           <p>บุ๊กมาร์ค</p>
         </Button>

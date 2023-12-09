@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+
+import Fade from "@components/web/Fade";
 import LoginForm from "@components/web/LoginForm";
 import RegisterForm from "@components/web/RegisterForm";
 import { SignFormState as FormState } from "@enums/SignFormState";
-import { fill, setIsShow } from "@store/slices/signFormSlice";
 import { clickAreaStateDefault } from "@models/interfaces/ClickAreaInterface";
-import { useAppDispatch, useAppSelector } from "@store/store";
+import { useAppDispatch, useAppSelector } from "@store/Store";
+import { fill, setIsShow } from "@store/slices/SignFormSlice";
 
 export default function SignForm() {
   const dispatch = useAppDispatch();
   const signFormState = useAppSelector((state) => state.signForm);
   const [clickAreaState, setClickAreaState] = useState(clickAreaStateDefault);
-  let form = formSelection(signFormState.selector);
 
   useEffect(() => {
     if (clickAreaState.plane && clickAreaState.box) {
@@ -39,41 +40,37 @@ export default function SignForm() {
   }
 
   return (
-    <Plane onClick={() => areaClick("plane")}>
-      <Box onClick={() => areaClick("box")}>
-        <HeaderForm>
-          <HeaderItem
-            $active={signFormState.selector == FormState.LOGIN}
-            onClick={() => selectorHandle(FormState.LOGIN)}
-          >
-            <p>Login</p>
-          </HeaderItem>
-          <HeaderItem
-            $active={signFormState.selector == FormState.REGISTER}
-            onClick={() => selectorHandle(FormState.REGISTER)}
-          >
-            <p>Register</p>
-          </HeaderItem>
-        </HeaderForm>
-        {form}
-      </Box>
-    </Plane>
+    <Fade in={signFormState.isShow} timeout={300}>
+      <Plane onClick={() => areaClick("plane")}>
+        <Box onClick={() => areaClick("box")}>
+          <HeaderForm>
+            <HeaderItem
+              $active={signFormState.selector == FormState.LOGIN}
+              onClick={() => selectorHandle(FormState.LOGIN)}
+            >
+              <p>Login</p>
+            </HeaderItem>
+            <HeaderItem
+              $active={signFormState.selector == FormState.REGISTER}
+              onClick={() => selectorHandle(FormState.REGISTER)}
+            >
+              <p>Register</p>
+            </HeaderItem>
+          </HeaderForm>
+          {signFormState.selector == FormState.LOGIN ? (
+            <LoginForm />
+          ) : (
+            <RegisterForm />
+          )}
+        </Box>
+      </Plane>
+    </Fade>
   );
 }
 
-function formSelection(state: string) {
-  if (state == FormState.REGISTER) {
-    return RegisterForm({ out: false });
-  }
-
-  if (state == FormState.LOGIN) {
-    return LoginForm({ out: false });
-  }
-}
-
 const Plane = styled.div`
-  width: 100%;
-  height: calc(100vh - 60px);
+  width: 100vw;
+  height: 100vh;
 
   position: fixed;
   top: 50%;

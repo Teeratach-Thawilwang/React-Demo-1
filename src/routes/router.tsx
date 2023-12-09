@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import backoffice from "@routes/backoffice";
-import frontside from "@routes/frontside";
+
+import backoffice from "@routes/Backoffice";
+import frontside from "@routes/Frontside";
 
 const router = createBrowserRouter([
   ...frontside,

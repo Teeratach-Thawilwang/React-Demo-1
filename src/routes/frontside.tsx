@@ -1,10 +1,10 @@
-import Home from "@pages/frontside/home";
+import Home from "@pages/frontside/Home";
 
 const frontside = [
-    {
-        path: "/",
-        element: <Home />,
-    },
+  {
+    path: "/",
+    element: <Home />,
+  },
 ];
 
 export default frontside;

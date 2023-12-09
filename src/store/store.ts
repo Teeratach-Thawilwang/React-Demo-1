@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { useSelector, useDispatch, TypedUseSelectorHook } from "react-redux";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
-import signFormReducer from "@store/slices/signFormSlice";
+import signFormReducer from "@store/slices/SignFormSlice";
 
 const store = configureStore({
   reducer: {

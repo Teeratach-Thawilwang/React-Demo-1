@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { signin } from "@mockData/users";
+import { signin } from "@mock/users";
 import { AuthState } from "@models/auth";
 
 const initialState: AuthState = {
@@ -19,7 +19,7 @@ export const signinAsync = createAsyncThunk(
     } catch (error) {
       throw error;
     }
-  }
+  },
 );
 
 // signinAsync.pending, signinAsync.fulfilled, signinAsync.rejected
