@@ -8,7 +8,10 @@ import { fill } from "@store/slices/SignFormSlice";
 export default function RegisterForm() {
   const dispatch = useAppDispatch();
   const signFormState = useAppSelector((state) => state.signForm);
-  const registerProps: SignFormButtonPropsInterface = { $bgColor: "#152027" };
+  const registerProps: SignFormButtonPropsInterface = {
+    $bgColor: "#152027",
+    $marginBottom: "20px",
+  };
 
   function setSignFormData(event: React.ChangeEvent<HTMLInputElement>): void {
     dispatch(fill({ [event.target.name]: event.target.value }));

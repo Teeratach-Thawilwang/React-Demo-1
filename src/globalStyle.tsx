@@ -26,6 +26,34 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.swiper {
+  height: 100%;
+  padding: 10px 0;
+}
+
+.swiper-pagination {
+  height: 10px;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  position: absolute;
+  bottom: 0px !important;
+  text-align: end;
+}
+
+.swiper-pagination-bullet{
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  background-color: #FFF;
+}
+
+.swiper-pagination-bullet-active{
+  width: 10px;
+  height: 10px;
+  background-color: #FFF;
+}
 `;
 
 export default GlobalStyle;

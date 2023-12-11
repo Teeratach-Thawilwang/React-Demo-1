@@ -1,6 +1,9 @@
 module.exports = {
   importOrder: [
     "<THIRD_PARTY_MODULES>",
+    "^react(.*)$",
+    "^styled(.*)$",
+    "^swiper(.*)$",
     "^@(assets|components|enums|mock|models|pages|routes|services|store|utils)/(.*)$",
     "^[./]"
   ],

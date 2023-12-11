@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import styled, { keyframes } from "styled-components";
 
 interface FadeInterface {
@@ -31,6 +32,8 @@ export default function MyFade(props: FadeInterface) {
 }
 
 const Box = styled.div<BoxInterFace>`
+  position: relative;
+  z-index: 100;
   visibility: ${(props) => (props.$in ? "visible" : "hidden")};
   animation: ${(props) => getAnimation(props)} ${(props) => props.$timeout}ms
     linear;

@@ -9,10 +9,10 @@ import store from "@store/Store";
 import GlobalStyle from "./GlobalStyle";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
     <GlobalStyle />
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>,
+    <RouterProvider router={router} />
+  </Provider>,
+  // </React.StrictMode>
 );

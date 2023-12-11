@@ -13,7 +13,7 @@ const initialState: SignFormStateInterface = {
 };
 
 const signFormSlice = createSlice({
-  name: "auth",
+  name: "signForm",
   initialState: initialState,
   reducers: {
     setIsShow: (state, action) => {
