@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 import SignFormButton from "@components/web/SignFormButton";
-import { SignFormButtonPropsInterface } from "@models/interfaces/SignFormButtonPropsInterface";
+import { SignFormButtonPropsInterface } from "@models/interfaces/frontside/SignFormButtonPropsInterface";
 import { useAppDispatch, useAppSelector } from "@store/Store";
-import { fill } from "@store/slices/SignFormSlice";
+import { fill } from "@store/slices/frontside/SignFormSlice";
 
 export default function LoginForm() {
   const dispatch = useAppDispatch();
-  const signFormState = useAppSelector((state) => state.signForm);
+  const signFormState = useAppSelector((state) => state.frontside.signForm);
 
   function setSignFormData(event: React.ChangeEvent<HTMLInputElement>): void {
     dispatch(fill({ [event.target.name]: event.target.value }));
@@ -19,27 +19,19 @@ export default function LoginForm() {
         name="email"
         placeholder=" อีเมล"
         value={signFormState.email ?? undefined}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setSignFormData(e)
-        }
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSignFormData(e)}
       />
       <Input
         name="password"
         type="password"
         placeholder=" รหัสผ่าน"
         value={signFormState.password ?? undefined}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setSignFormData(e)
-        }
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSignFormData(e)}
       />
       <SignFormButton {...loginProps}>Login</SignFormButton>
       <ForgotPassword>ลืมรหัสผ่าน ?</ForgotPassword>
-      <SignFormButton {...loginFacebookProps}>
-        เข้าสู่ระบบด้วย Facebook
-      </SignFormButton>
-      <SignFormButton {...loginGoolgeProps}>
-        เข้าสู่ระบบด้วย Google
-      </SignFormButton>
+      <SignFormButton {...loginFacebookProps}>เข้าสู่ระบบด้วย Facebook</SignFormButton>
+      <SignFormButton {...loginGoolgeProps}>เข้าสู่ระบบด้วย Google</SignFormButton>
     </Box>
   );
 }

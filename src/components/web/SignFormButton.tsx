@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { SignFormButtonPropsInterface } from "@models/interfaces/SignFormButtonPropsInterface";
+import { SignFormButtonPropsInterface } from "@models/interfaces/frontside/SignFormButtonPropsInterface";
 
 export default function SignFormButton(props: SignFormButtonPropsInterface) {
   return <Box {...props}></Box>;

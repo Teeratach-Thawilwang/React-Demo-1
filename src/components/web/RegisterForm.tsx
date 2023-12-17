@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 import SignFormButton from "@components/web/SignFormButton";
-import { SignFormButtonPropsInterface } from "@models/interfaces/SignFormButtonPropsInterface";
+import { SignFormButtonPropsInterface } from "@models/interfaces/frontside/SignFormButtonPropsInterface";
 import { useAppDispatch, useAppSelector } from "@store/Store";
-import { fill } from "@store/slices/SignFormSlice";
+import { fill } from "@store/slices/frontside/SignFormSlice";
 
 export default function RegisterForm() {
   const dispatch = useAppDispatch();
-  const signFormState = useAppSelector((state) => state.signForm);
+  const signFormState = useAppSelector((state) => state.frontside.signForm);
   const registerProps: SignFormButtonPropsInterface = {
     $bgColor: "#152027",
     $marginBottom: "20px",

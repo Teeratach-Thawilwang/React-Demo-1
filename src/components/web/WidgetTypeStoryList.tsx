@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
@@ -12,9 +13,9 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import expandRight from "@assets/icon/expand_right.svg";
 import BannerTypeStory from "@components/web/BannerTypeStory";
 import SwiperButton from "@components/web/SwiperButton";
-import { WidgetListInterface } from "@models/interfaces/WidgetListInterface";
+import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetDetailInterface";
 
-export default function WidgetTypeStoryList(widget: WidgetListInterface) {
+export default React.memo(function WidgetTypeStoryList(widget: WidgetDetailInterface) {
   const navigate = useNavigate();
   const storyBanners = createSlideBanner(widget);
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -22,10 +23,10 @@ export default function WidgetTypeStoryList(widget: WidgetListInterface) {
   return (
     <Box>
       <Header>
-        <Title onClick={() => navigate("/category")}>
+        <Title onClick={() => navigate("/widget/" + widget.slug)}>
           <p>{widget.title}</p>
         </Title>
-        <LinkDetail onClick={() => navigate("/category")}>
+        <LinkDetail onClick={() => navigate("/widget/" + widget.slug)}>
           <p>ดูทั้งหมด</p>
           <img src={expandRight} alt="HomeIcon" />
         </LinkDetail>
@@ -48,7 +49,7 @@ export default function WidgetTypeStoryList(widget: WidgetListInterface) {
       </Content>
     </Box>
   );
-}
+});
 
 const Box = styled.div`
   width: 1100px;
@@ -111,7 +112,7 @@ const Content = styled.div`
   /* border: 1px solid orange; */
 `;
 
-function createSlideBanner(widget: WidgetListInterface) {
+function createSlideBanner(widget: WidgetDetailInterface) {
   return widget.item?.map((banner, _key) => {
     return (
       <SwiperSlide key={banner.id}>

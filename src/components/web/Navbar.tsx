@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -7,28 +7,27 @@ import categoryIcon from "@assets/icon/category.svg";
 import homeIcon from "@assets/icon/home.svg";
 import searchIcon from "@assets/icon/search_icon.svg";
 import signinIcon from "@assets/icon/signin_icon.svg";
-import { useAppDispatch } from "@store/Store";
-import { setIsShow } from "@store/slices/SignFormSlice";
+import SignFormService from "@services/frontside/SignFormService";
 
 export default function Navbar() {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <Box>
       <TabNavbar>
-        <Logo onClick={() => navigate("/")}>
+        <Logo onClick={() => (location.pathname != "/" ? navigate("/") : null)}>
           <p>Lunar</p>
         </Logo>
-        <Button onClick={() => navigate("/")}>
+        <Button onClick={() => (location.pathname != "/" ? navigate("/") : null)}>
           <img src={homeIcon} alt="HomeIcon" />
           <p>หน้าแรก</p>
         </Button>
-        <Button onClick={() => navigate("/category")}>
+        <Button onClick={() => (location.pathname != "/category" ? navigate("/category") : null)}>
           <img src={categoryIcon} alt="CategoryIcon" />
           <p>หมวดหมู่</p>
         </Button>
-        <Button onClick={() => navigate("/bookmark")}>
+        <Button onClick={() => (location.pathname != "/category" ? navigate("/bookmark") : null)}>
           <img src={bookmarkIcon} alt="BookmarkIcon" />
           <p>บุ๊กมาร์ค</p>
         </Button>
@@ -36,7 +35,7 @@ export default function Navbar() {
           <img src={searchIcon} alt="SearchIcon" />
           <input type="text" placeholder="ค้นหา" />
         </SearchElement>
-        <Button onClick={() => dispatch(setIsShow(true))}>
+        <Button onClick={() => SignFormService.setIsShow(true)}>
           <img src={signinIcon} alt="SinginIcon" />
           <p>เข้าสู่ระบบ</p>
         </Button>

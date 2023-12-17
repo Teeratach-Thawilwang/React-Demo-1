@@ -1,8 +1,7 @@
-export enum WidgetType {
-  STORY_LIST = "story_list",
+export enum BannerTypeEnum {
+  STORY = "story",
   STORY_WINDOW = "story_window",
-  STORY_GROUP = "story_group",
-  CHAPTER_GROUP = "chapter_group",
+  CHAPTER = "chapter",
   ADVERTISEMENT_SMALL = "advertisement_small",
   ADVERTISEMENT_MEDIUM = "advertisement_medium",
   ADVERTISEMENT_GROUP = "advertisement_group",

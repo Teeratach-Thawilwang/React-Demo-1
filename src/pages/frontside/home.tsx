@@ -2,22 +2,16 @@ import { useEffect } from "react";
 
 import styled from "styled-components";
 
+import Footer from "@components/web/Footer";
 import Navbar from "@components/web/Navbar";
 import SignForm from "@components/web/SignForm";
 import WidgetList from "@components/web/WidgetList";
-import { WidgetListApiParameter } from "@models/interfaces/WidgetListApiParameter";
-import { useAppDispatch } from "@store/Store";
-import { getWidgetListAsync } from "@store/slices/WidgetSlice";
+import WidgetService from "@services/frontside/WidgetService";
 
 export default function Home() {
-  const dispatch = useAppDispatch();
   useEffect(() => {
-    // Should use WidgetService
-    const params: WidgetListApiParameter = {
-      shouldSuccess: true,
-      useMock: true,
-    };
-    dispatch(getWidgetListAsync(params));
+    document.title = "Lunar: Home";
+    WidgetService.loadWidgetList({});
   }, []);
 
   return (
@@ -25,6 +19,7 @@ export default function Home() {
       <Navbar />
       <SignForm />
       <WidgetList />
+      <Footer />
     </Box>
   );
 }

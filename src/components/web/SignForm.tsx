@@ -1,68 +1,47 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import styled from "styled-components";
 
 import Fade from "@components/web/Fade";
 import LoginForm from "@components/web/LoginForm";
 import RegisterForm from "@components/web/RegisterForm";
-import { SignFormState as FormState } from "@enums/SignFormState";
-import { clickAreaStateDefault } from "@models/interfaces/ClickAreaInterface";
-import { useAppDispatch, useAppSelector } from "@store/Store";
-import { fill, setIsShow } from "@store/slices/SignFormSlice";
+import { SignFormState as FormState } from "@enums/frontside/SignFormStateEnum";
+import SignFormService from "@services/frontside/SignFormService";
 
 export default function SignForm() {
-  const dispatch = useAppDispatch();
-  const signFormState = useAppSelector((state) => state.signForm);
-  const [clickAreaState, setClickAreaState] = useState(clickAreaStateDefault);
+  const signFormState = SignFormService.getSignFormState();
 
   useEffect(() => {
-    if (clickAreaState.plane && clickAreaState.box) {
-      dispatch(setIsShow(true));
+    if (signFormState.plane && signFormState.box) {
+      SignFormService.setIsShow(true);
     }
 
-    if (clickAreaState.plane == true && clickAreaState.box == false) {
-      dispatch(setIsShow(false));
+    if (signFormState.plane == true && signFormState.box == false) {
+      SignFormService.setIsShow(false);
     }
 
-    setClickAreaState(clickAreaStateDefault);
-  }, [clickAreaState]);
-
-  function areaClick(key: string) {
-    setClickAreaState((oldState) => {
-      return {
-        ...oldState,
-        [key]: true,
-      };
-    });
-  }
-
-  function selectorHandle(selector: string): void {
-    dispatch(fill({ selector: selector }));
-  }
+    SignFormService.clearStateArea();
+  }, [signFormState.box, signFormState.plane]);
 
   return (
     <Fade in={signFormState.isShow} timeout={300}>
-      <Plane onClick={() => areaClick("plane")}>
-        <Box onClick={() => areaClick("box")}>
+      <Plane onClick={() => SignFormService.onClickArea("plane")}>
+        <Box onClick={() => SignFormService.onClickArea("box")}>
           <HeaderForm>
             <HeaderItem
               $active={signFormState.selector == FormState.LOGIN}
-              onClick={() => selectorHandle(FormState.LOGIN)}
+              onClick={() => SignFormService.selectorHandle(FormState.LOGIN)}
             >
               <p>Login</p>
             </HeaderItem>
             <HeaderItem
               $active={signFormState.selector == FormState.REGISTER}
-              onClick={() => selectorHandle(FormState.REGISTER)}
+              onClick={() => SignFormService.selectorHandle(FormState.REGISTER)}
             >
               <p>Register</p>
             </HeaderItem>
           </HeaderForm>
-          {signFormState.selector == FormState.LOGIN ? (
-            <LoginForm />
-          ) : (
-            <RegisterForm />
-          )}
+          {signFormState.selector == FormState.LOGIN ? <LoginForm /> : <RegisterForm />}
         </Box>
       </Plane>
     </Fade>

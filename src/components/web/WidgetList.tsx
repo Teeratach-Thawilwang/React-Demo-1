@@ -2,16 +2,16 @@ import { useMemo } from "react";
 
 import styled from "styled-components";
 
-import { WidgetType } from "@enums/WidgetType";
-import { WidgetListApiInterface } from "@models/interfaces/WidgetListApiInterface";
-import { useAppSelector } from "@store/Store";
-
-import WidgetTypeAdvertisementGroup from "./WidgetTypeAdvertisementGroup";
-import WidgetTypeStoryList from "./WidgetTypeStoryList";
+import WidgetTypeAdvertisementGroup from "@components/web/WidgetTypeAdvertisementGroup";
+import WidgetTypeChapterGroup from "@components/web/WidgetTypeChapterGroup";
+import WidgetTypeStoryList from "@components/web/WidgetTypeStoryList";
+import { WidgetTypeEnum } from "@enums/frontside/WidgetTypeEnum";
+import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInterface";
+import WidgetService from "@services/frontside/WidgetService";
 
 export default function WidgetList() {
-  const widgetState = useAppSelector((state) => state.widget);
-  const widgets = useMemo(() => widgetState.widget, [widgetState.widget]);
+  const widgetListState = WidgetService.getwidgetListState();
+  const widgets = useMemo(() => widgetListState.widgetList, [widgetListState.widgetList]);
   const element = widgetManager(widgets);
 
   return <Box>{element}</Box>;
@@ -19,17 +19,18 @@ export default function WidgetList() {
 
 const Box = styled.div`
   width: 100%;
-
   margin: 0;
 `;
 
-function widgetManager(widget: WidgetListApiInterface | null) {
-  return widget?.data.map((widget, _key) => {
+function widgetManager(widget: WidgetListInterface | null) {
+  return widget?.data.map((widget) => {
     switch (widget.type) {
-      case WidgetType.ADVERTISEMENT_GROUP:
+      case WidgetTypeEnum.ADVERTISEMENT_GROUP:
         return <WidgetTypeAdvertisementGroup {...widget} key={widget.id} />;
-      case WidgetType.STORY_LIST:
+      case WidgetTypeEnum.STORY_LIST:
         return <WidgetTypeStoryList {...widget} key={widget.id} />;
+      case WidgetTypeEnum.CHAPTER_GROUP:
+        return <WidgetTypeChapterGroup {...widget} key={widget.id} />;
     }
   });
 }

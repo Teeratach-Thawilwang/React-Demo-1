@@ -1,13 +1,10 @@
-import { useNavigate } from "react-router-dom";
-
 import styled from "styled-components";
 
-import { BannerInterface } from "@models/interfaces/BannerInterface";
+import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
 
 export default function BannerTypeAdvertisementGroup(banner: BannerInterface) {
-  const navigate = useNavigate();
   return (
-    <Box onClick={() => navigate(banner.link)}>
+    <Box onClick={() => window.open("//" + banner.link, "_blank")}>
       <img src={banner.images[0].desktop} alt="HomeIcon" />
     </Box>
   );

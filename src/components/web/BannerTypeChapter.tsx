@@ -4,19 +4,20 @@ import styled from "styled-components";
 
 import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
 
-export default function BannerTypeStory(banner: BannerInterface) {
+export default function BannerTypeChapter(banner: BannerInterface) {
   const navigate = useNavigate();
   return (
     <Box onClick={() => navigate(banner.link)}>
       <img src={banner.images[0].desktop} />
       <Title>{banner.title}</Title>
+      <Name>{banner.name}</Name>
     </Box>
   );
 }
 
 const Box = styled.div`
   width: 250px;
-  height: 400px;
+  height: 415px;
   /* border: 1px solid red; */
 
   img {
@@ -46,9 +47,23 @@ const Box = styled.div`
 
 const Title = styled.div`
   width: 230px;
-  height: 55px;
-  margin: 0px 10px 10px 10px;
+  height: 30px;
+  margin: 0px 10px 0px 10px;
   font-size: 20px;
+  /* border: 1px solid red; */
+
+  white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+  overflow: hidden; /* ทำให้เนื้อหาที่เกินซ่อนไว้ */
+  text-overflow: ellipsis;
+`;
+
+const Name = styled.div`
+  width: 230px;
+  height: 30px;
+  margin: 0px 10px 10px 10px;
+  font-size: 16px;
+  opacity: 0.7;
+  /* border: 1px solid red; */
 
   white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
   overflow: hidden; /* ทำให้เนื้อหาที่เกินซ่อนไว้ */

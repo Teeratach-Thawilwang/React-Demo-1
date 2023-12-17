@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { SignFormState } from "@enums/SignFormState";
-import { SignFormStateInterface } from "@models/interfaces/SignFormStateInterface";
+import { SignFormState } from "@enums/frontside/SignFormStateEnum";
+import { SignFormStateInterface } from "@models/interfaces/frontside/SignFormStateInterface";
 
 const initialState: SignFormStateInterface = {
   isShow: false,
+  plane: false,
+  box: false,
   selector: SignFormState.LOGIN,
   email: "",
   nickname: "",
@@ -16,9 +18,6 @@ const signFormSlice = createSlice({
   name: "signForm",
   initialState: initialState,
   reducers: {
-    setIsShow: (state, action) => {
-      state.isShow = action.payload;
-    },
     fill: (state, action) => {
       state = { ...state, ...action.payload };
       return state;
@@ -26,6 +25,6 @@ const signFormSlice = createSlice({
   },
 });
 
-export const { setIsShow, fill } = signFormSlice.actions;
+export const { fill } = signFormSlice.actions;
 
 export default signFormSlice.reducer;

@@ -23,6 +23,7 @@
     /* Alias Path*/
     "baseUrl": "./src",
     "paths": {
+      "@api/*": ["api/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@enums/*": ["enums/*"],
