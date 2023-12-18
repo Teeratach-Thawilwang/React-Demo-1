@@ -37,12 +37,11 @@ export default React.memo(function WidgetTypeAdvertisementMedium(widget: WidgetD
 
 const Box = styled.div`
   width: 1000px;
-  height: 280px;
-  margin: 20px auto 0px auto;
+  height: 220px;
+  margin: 55px auto 0px auto;
 
   display: flex;
   justify-content: center;
-  align-items: center;
 
   /* border: 1px solid red; */
 `;

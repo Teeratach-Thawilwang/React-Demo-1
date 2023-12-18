@@ -13,7 +13,7 @@ export default function BannerTypeAdvertisementMedium(banner: BannerInterface) {
 const Box = styled.div`
   width: 100%;
   margin: 0 auto;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 
   img {
     display: block;

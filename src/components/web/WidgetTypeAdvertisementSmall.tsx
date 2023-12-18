@@ -38,19 +38,19 @@ export default React.memo(function WidgetTypeAdvertisementSmall(widget: WidgetDe
 
 const Box = styled.div`
   width: 1000px;
-  height: 250px;
-  margin: 20px auto 0px auto;
+  height: 190px;
+  margin: 55px auto 0px auto;
   /* border: 1px solid yellow; */
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Content = styled.div`
   width: 100%;
   height: 170px;
   /* border: 1px solid red; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 function createSlideBanner(widget: WidgetDetailInterface) {
