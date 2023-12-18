@@ -4,7 +4,7 @@ import SignFormButton from "@components/web/SignFormButton";
 import { SignFormButtonPropsInterface } from "@models/interfaces/frontside/SignFormButtonPropsInterface";
 import SignFormService from "@services/frontside/SignFormService";
 
-export default function RegisterForm() {
+export default function ForgotPasswordForm() {
   const signFormState = SignFormService.getSignFormState();
   const SignFormBottonProps: SignFormButtonPropsInterface = {
     $bgColor: "#152027",
@@ -18,20 +18,7 @@ export default function RegisterForm() {
   return (
     <Box>
       <Input name="email" placeholder=" อีเมล" value={signFormState.email ?? undefined} onChange={(e) => setSignFormData(e)} />
-      <Input name="nickname" placeholder=" ชื่อเล่น" value={signFormState.nickname ?? undefined} onChange={(e) => setSignFormData(e)} />
-      <Input
-        name="password"
-        placeholder=" รหัสผ่านอย่างน้อย 8 ตัวอักษร"
-        value={signFormState.password ?? undefined}
-        onChange={(e) => setSignFormData(e)}
-      />
-      <Input
-        name="confirmPassword"
-        placeholder=" ยืนยันรหัสผ่าน"
-        value={signFormState.confirmPassword ?? undefined}
-        onChange={(e) => setSignFormData(e)}
-      />
-      <SignFormButton {...SignFormBottonProps}>Register</SignFormButton>
+      <SignFormButton {...SignFormBottonProps}>Change Password</SignFormButton>
     </Box>
   );
 }

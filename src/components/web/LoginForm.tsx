@@ -1,16 +1,19 @@
 import styled from "styled-components";
 
 import SignFormButton from "@components/web/SignFormButton";
+import { SignFormState } from "@enums/frontside/SignFormStateEnum";
 import { SignFormButtonPropsInterface } from "@models/interfaces/frontside/SignFormButtonPropsInterface";
-import { useAppDispatch, useAppSelector } from "@store/Store";
-import { fill } from "@store/slices/frontside/SignFormSlice";
+import SignFormService from "@services/frontside/SignFormService";
 
 export default function LoginForm() {
-  const dispatch = useAppDispatch();
-  const signFormState = useAppSelector((state) => state.frontside.signForm);
+  const signFormState = SignFormService.getSignFormState();
 
   function setSignFormData(event: React.ChangeEvent<HTMLInputElement>): void {
-    dispatch(fill({ [event.target.name]: event.target.value }));
+    SignFormService.fill({ [event.target.name]: event.target.value });
+  }
+
+  function setSelector(selector: SignFormState): void {
+    SignFormService.fill({ selector: selector });
   }
 
   return (
@@ -29,7 +32,13 @@ export default function LoginForm() {
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSignFormData(e)}
       />
       <SignFormButton {...loginProps}>Login</SignFormButton>
-      <ForgotPassword>ลืมรหัสผ่าน ?</ForgotPassword>
+      <ForgotPassword
+        onClick={() => {
+          setSelector(SignFormState.FORGOT_PASSWORD);
+        }}
+      >
+        ลืมรหัสผ่าน ?
+      </ForgotPassword>
       <SignFormButton {...loginFacebookProps}>เข้าสู่ระบบด้วย Facebook</SignFormButton>
       <SignFormButton {...loginGoolgeProps}>เข้าสู่ระบบด้วย Google</SignFormButton>
     </Box>

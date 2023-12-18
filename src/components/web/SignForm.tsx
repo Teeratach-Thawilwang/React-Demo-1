@@ -2,14 +2,18 @@ import { useEffect } from "react";
 
 import styled from "styled-components";
 
+import expandLeftIcon from "@assets/icon/expand_left_dark.svg";
 import Fade from "@components/web/Fade";
+import ForgotPasswordForm from "@components/web/ForgetPasswordForm";
 import LoginForm from "@components/web/LoginForm";
 import RegisterForm from "@components/web/RegisterForm";
-import { SignFormState as FormState } from "@enums/frontside/SignFormStateEnum";
+import { SignFormState as FormState, SignFormState } from "@enums/frontside/SignFormStateEnum";
 import SignFormService from "@services/frontside/SignFormService";
 
 export default function SignForm() {
   const signFormState = SignFormService.getSignFormState();
+  let formHeader = getFormHeader(signFormState.selector);
+  let formElement = getFormElement(signFormState.selector);
 
   useEffect(() => {
     if (signFormState.plane && signFormState.box) {
@@ -27,21 +31,8 @@ export default function SignForm() {
     <Fade in={signFormState.isShow} timeout={300}>
       <Plane onClick={() => SignFormService.onClickArea("plane")}>
         <Box onClick={() => SignFormService.onClickArea("box")}>
-          <HeaderForm>
-            <HeaderItem
-              $active={signFormState.selector == FormState.LOGIN}
-              onClick={() => SignFormService.selectorHandle(FormState.LOGIN)}
-            >
-              <p>Login</p>
-            </HeaderItem>
-            <HeaderItem
-              $active={signFormState.selector == FormState.REGISTER}
-              onClick={() => SignFormService.selectorHandle(FormState.REGISTER)}
-            >
-              <p>Register</p>
-            </HeaderItem>
-          </HeaderForm>
-          {signFormState.selector == FormState.LOGIN ? <LoginForm /> : <RegisterForm />}
+          <HeaderForm>{formHeader}</HeaderForm>
+          {formElement}
         </Box>
       </Plane>
     </Fade>
@@ -76,6 +67,8 @@ const HeaderForm = styled.div`
   display: flex;
   justify-content: center;
   margin: 20px 0 20px 0;
+
+  /* border: 1px solid red; */
 `;
 
 const HeaderItem = styled.div<{ $active: boolean }>`
@@ -107,3 +100,64 @@ const HeaderItem = styled.div<{ $active: boolean }>`
     cursor: pointer;
   }
 `;
+
+const HeaderForgotPassword = styled.div`
+  display: flex;
+  width: 100%;
+
+  p {
+    text-align: center;
+    width: 325px;
+    height: 35px;
+    margin: 0 35px 0 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  img {
+    width: 35px;
+    height: 35px;
+    margin-right: 0px;
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+`;
+
+function getFormElement(selector: string) {
+  switch (selector) {
+    case SignFormState.LOGIN:
+      return <LoginForm />;
+    case SignFormState.REGISTER:
+      return <RegisterForm />;
+    case SignFormState.FORGOT_PASSWORD:
+      return <ForgotPasswordForm />;
+    default:
+      return <LoginForm />;
+  }
+}
+
+function getFormHeader(selector: string) {
+  if (selector === SignFormState.FORGOT_PASSWORD) {
+    return (
+      <HeaderForgotPassword>
+        <img src={expandLeftIcon} alt="BackIcon" onClick={() => SignFormService.selectorHandle(FormState.LOGIN)} />
+        <p>Chang Password</p>
+      </HeaderForgotPassword>
+    );
+  } else {
+    return (
+      <>
+        <HeaderItem $active={selector == FormState.LOGIN} onClick={() => SignFormService.selectorHandle(FormState.LOGIN)}>
+          <p>Login</p>
+        </HeaderItem>
+        <HeaderItem $active={selector == FormState.REGISTER} onClick={() => SignFormService.selectorHandle(FormState.REGISTER)}>
+          <p>Register</p>
+        </HeaderItem>
+      </>
+    );
+  }
+}

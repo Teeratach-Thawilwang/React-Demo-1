@@ -6,12 +6,19 @@ import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetDetail
 import { WidgetListApiParameter } from "@models/interfaces/frontside/WidgetListApiParameter";
 import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInterface";
 
+import { widgetTypeAdvertisementMediumMock } from "./WidgetTypeAdvertisementMediumMock";
+import { widgetTypeAdvertisementSmallMock } from "./WidgetTypeAdvertisementSmallMock";
+import { widgetTypeStoryWindowMock } from "./WidgetTypeStoryWindowMock";
+
 class WidgetMock {
   private data: WidgetDetailInterface[] = [
     widgetTypeAdvertisementGroupMock("โฆษณาเดือนธันวาคม"),
     widgetTypeStoryListMock("โปรโมท-1"),
     widgetTypeStoryListMock("โปรโมท-2"),
     widgetTypeChapterGroupMock(1),
+    widgetTypeAdvertisementMediumMock("ป้ายโฆษณา-medium"),
+    widgetTypeStoryWindowMock("โปรโมท-3"),
+    widgetTypeAdvertisementSmallMock("ป้ายโฆษณา-small"),
   ];
 
   public index(_params: WidgetListApiParameter, shouldSuccess: boolean): Promise<WidgetListInterface> {
@@ -21,7 +28,7 @@ class WidgetMock {
         next: null,
         previous: null,
         last: 1,
-        total: 4,
+        total: 7,
         data: this.data,
       };
 

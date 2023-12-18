@@ -7,6 +7,11 @@ class SignFormService {
   public getSignFormState(): SignFormStateInterface {
     return useAppSelector((state) => state.frontside.signForm);
   }
+
+  public fill(params: any) {
+    store.dispatch(fill(params));
+  }
+
   public setIsShow(isShow: boolean): void {
     store.dispatch(fill({ isShow: isShow }));
   }

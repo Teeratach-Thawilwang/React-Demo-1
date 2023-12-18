@@ -93,7 +93,7 @@ const defaultStoryListBanners: BannerInterface[] = [
   },
 ];
 
-export const widgetTypeStoryListMock1: WidgetDetailInterface = {
+const widgetTypeStoryListMock1: WidgetDetailInterface = {
   id: 2,
   sequence: 2,
   slug: "โปรโมท-1",
@@ -102,7 +102,7 @@ export const widgetTypeStoryListMock1: WidgetDetailInterface = {
   item: shuffleArray(defaultStoryListBanners),
 };
 
-export const widgetTypeStoryListMock2: WidgetDetailInterface = {
+const widgetTypeStoryListMock2: WidgetDetailInterface = {
   id: 3,
   sequence: 3,
   slug: "โปรโมท-2",
