@@ -1,3 +1,5 @@
+import expandRight from "@assets/icon/expand_right.svg";
+
 import { useRef } from "react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -10,12 +12,11 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
-import expandRight from "@assets/icon/expand_right.svg";
 import BannerTypeStory from "@components/web/BannerTypeStory";
 import SwiperButton from "@components/web/SwiperButton";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetDetailInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 
-export default React.memo(function WidgetTypeStoryList(widget: WidgetDetailInterface) {
+export default React.memo(function WidgetTypeStoryList(widget: WidgetInterface) {
   const navigate = useNavigate();
   const storyBanners = createSlideBanner(widget);
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -112,8 +113,8 @@ const Content = styled.div`
   /* border: 1px solid orange; */
 `;
 
-function createSlideBanner(widget: WidgetDetailInterface) {
-  return widget.item?.map((banner, _key) => {
+function createSlideBanner(widget: WidgetInterface) {
+  return widget.item?.map((banner) => {
     return (
       <SwiperSlide key={banner.id}>
         <BannerTypeStory {...banner} />

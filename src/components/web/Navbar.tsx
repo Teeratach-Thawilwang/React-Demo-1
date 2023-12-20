@@ -1,17 +1,26 @@
-import { useLocation, useNavigate } from "react-router-dom";
-
-import styled from "styled-components";
-
 import bookmarkIcon from "@assets/icon/bookmark.svg";
 import categoryIcon from "@assets/icon/category.svg";
 import homeIcon from "@assets/icon/home.svg";
 import searchIcon from "@assets/icon/search_icon.svg";
 import signinIcon from "@assets/icon/signin_icon.svg";
+
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import styled from "styled-components";
+
+import CategoryDropDownCard from "@components/web/CategoryDropDownCard";
+import SignForm from "@components/web/SignForm";
 import SignFormService from "@services/frontside/SignFormService";
 
 export default function Navbar() {
+  const [isCategoryCardShow, setIsCategoryCardShow] = useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  function onCategoryButtonClick(isShow: boolean) {
+    setIsCategoryCardShow(isShow);
+  }
 
   return (
     <Box>
@@ -23,11 +32,14 @@ export default function Navbar() {
           <img src={homeIcon} alt="HomeIcon" />
           <p>หน้าแรก</p>
         </Button>
-        <Button onClick={() => (location.pathname != "/category" ? navigate("/category") : null)}>
-          <img src={categoryIcon} alt="CategoryIcon" />
-          <p>หมวดหมู่</p>
-        </Button>
-        <Button onClick={() => (location.pathname != "/category" ? navigate("/bookmark") : null)}>
+        <DropDown>
+          <Button onClick={() => setIsCategoryCardShow(!isCategoryCardShow)}>
+            <img src={categoryIcon} alt="CategoryIcon" />
+            <p>หมวดหมู่</p>
+          </Button>
+          <CategoryDropDownCard isShow={isCategoryCardShow} onClick={onCategoryButtonClick} />
+        </DropDown>
+        <Button onClick={() => (location.pathname != "/bookmark" ? navigate("/bookmark") : null)}>
           <img src={bookmarkIcon} alt="BookmarkIcon" />
           <p>บุ๊กมาร์ค</p>
         </Button>
@@ -40,6 +52,7 @@ export default function Navbar() {
           <p>เข้าสู่ระบบ</p>
         </Button>
       </TabNavbar>
+      <SignForm />
     </Box>
   );
 }
@@ -153,4 +166,10 @@ const SearchElement = styled.div`
     width: 300px;
     transition: width 0.5s;
   }
+`;
+
+const DropDown = styled.div`
+  position: relative;
+  display: inline-block;
+  /* border: 1px solid red; */
 `;

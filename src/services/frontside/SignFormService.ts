@@ -1,36 +1,36 @@
 import { SignFormState } from "@enums/frontside/SignFormStateEnum";
 import { SignFormStateInterface } from "@models/interfaces/frontside/SignFormStateInterface";
 import store, { useAppSelector } from "@store/Store";
-import { fill } from "@store/slices/backoffice/SignFormSlice";
+import { update } from "@store/slices/backoffice/SignFormSlice";
 
 class SignFormService {
-  public getSignFormState(): SignFormStateInterface {
+  public getState(): SignFormStateInterface {
     return useAppSelector((state) => state.frontside.signForm);
   }
 
-  public fill(params: any) {
-    store.dispatch(fill(params));
+  public update(params: any) {
+    store.dispatch(update(params));
   }
 
   public setIsShow(isShow: boolean): void {
-    store.dispatch(fill({ isShow: isShow }));
+    store.dispatch(update({ isShow: isShow }));
   }
 
   public selectorHandle(selector: string): void {
-    store.dispatch(fill({ selector: selector }));
+    store.dispatch(update({ selector: selector }));
   }
 
   public onClickArea(key: string) {
-    store.dispatch(fill({ [key]: true }));
+    store.dispatch(update({ [key]: true }));
   }
 
   public clearStateArea() {
-    store.dispatch(fill({ box: false, plane: false }));
+    store.dispatch(update({ box: false, plane: false }));
   }
 
   public clearState() {
     store.dispatch(
-      fill({
+      update({
         isShow: false,
         plane: false,
         box: false,

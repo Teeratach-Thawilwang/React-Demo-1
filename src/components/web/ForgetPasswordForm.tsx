@@ -5,7 +5,7 @@ import { SignFormButtonPropsInterface } from "@models/interfaces/frontside/SignF
 import SignFormService from "@services/frontside/SignFormService";
 
 export default function ForgotPasswordForm() {
-  const signFormState = SignFormService.getSignFormState();
+  const signFormState = SignFormService.getState();
   const SignFormBottonProps: SignFormButtonPropsInterface = {
     $bgColor: "#152027",
     $marginBottom: "20px",

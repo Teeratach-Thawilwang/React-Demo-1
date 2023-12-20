@@ -13,8 +13,8 @@ import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInte
 import WidgetService from "@services/frontside/WidgetService";
 
 export default function WidgetList() {
-  const widgetListState = WidgetService.getwidgetListState();
-  const widgets = useMemo(() => widgetListState.widgetList, [widgetListState.widgetList]);
+  const widgetState = WidgetService.getState();
+  const widgets = useMemo(() => widgetState.widgets, [widgetState.widgets]);
   const element = widgetManager(widgets);
   return <Box>{element}</Box>;
 }

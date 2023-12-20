@@ -7,6 +7,7 @@ import SignFormReducer from "@store/slices/backoffice/SignFormSlice";
 const persistConfig = {
   key: "backoffice",
   storage,
+  blacklist: ["signForm"],
 };
 
 const backofficeReducer = combineReducers({

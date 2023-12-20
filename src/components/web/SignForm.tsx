@@ -1,8 +1,9 @@
+import expandLeftIcon from "@assets/icon/expand_left_dark.svg";
+
 import { useEffect } from "react";
 
 import styled from "styled-components";
 
-import expandLeftIcon from "@assets/icon/expand_left_dark.svg";
 import Fade from "@components/web/Fade";
 import ForgotPasswordForm from "@components/web/ForgetPasswordForm";
 import LoginForm from "@components/web/LoginForm";
@@ -11,7 +12,7 @@ import { SignFormState as FormState, SignFormState } from "@enums/frontside/Sign
 import SignFormService from "@services/frontside/SignFormService";
 
 export default function SignForm() {
-  const signFormState = SignFormService.getSignFormState();
+  const signFormState = SignFormService.getState();
   let formHeader = getFormHeader(signFormState.selector);
   let formElement = getFormElement(signFormState.selector);
 

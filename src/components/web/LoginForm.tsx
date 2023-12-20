@@ -6,14 +6,14 @@ import { SignFormButtonPropsInterface } from "@models/interfaces/frontside/SignF
 import SignFormService from "@services/frontside/SignFormService";
 
 export default function LoginForm() {
-  const signFormState = SignFormService.getSignFormState();
+  const signFormState = SignFormService.getState();
 
   function setSignFormData(event: React.ChangeEvent<HTMLInputElement>): void {
-    SignFormService.fill({ [event.target.name]: event.target.value });
+    SignFormService.update({ [event.target.name]: event.target.value });
   }
 
   function setSelector(selector: SignFormState): void {
-    SignFormService.fill({ selector: selector });
+    SignFormService.update({ selector: selector });
   }
 
   return (

@@ -1,4 +1,4 @@
-export interface WidgetListApiParameter {
+export interface CatagoryIndexParameterInterface {
   page?: number;
   perPage?: number;
   orderBy?: string;

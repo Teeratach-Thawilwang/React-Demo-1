@@ -1,22 +1,23 @@
+import expandRight from "@assets/icon/expand_right.svg";
+
 import React, { MutableRefObject, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-import expandRight from "@assets/icon/expand_right.svg";
 import BannerTypeChapter from "@components/web/BannerTypeChapter";
 import PaginationTab from "@components/web/PaginationTab";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetDetailInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import WidgetService from "@services/frontside/WidgetService";
 
-export default React.memo(function WidgetTypeChapterGroup(widget: WidgetDetailInterface) {
+export default React.memo(function WidgetTypeChapterGroup(widget: WidgetInterface) {
   const headerElementRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
   const navigate = useNavigate();
   const chapterBanners = createChapterBanner(widget);
   const row = getRow(widget);
 
   function navigatePagination(page: number) {
-    WidgetService.loadWidgetDetail({ slug: widget.slug, page: page });
+    WidgetService.loadBySlug({ slug: widget.slug, page: page });
     headerElementRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   const paginateProps = {
@@ -111,13 +112,13 @@ const BoxPagination = styled.div`
   margin: 0 auto 0px auto;
 `;
 
-function createChapterBanner(widget: WidgetDetailInterface) {
-  return widget.item?.map((banner, _key) => {
+function createChapterBanner(widget: WidgetInterface) {
+  return widget.item?.map((banner) => {
     return <BannerTypeChapter {...banner} key={banner.id} />;
   });
 }
 
-function getRow(widget: WidgetDetailInterface): number {
+function getRow(widget: WidgetInterface): number {
   const perPage = widget.item?.reduce((sum, _banner) => sum + 1, 0) ?? 0;
   const row = Math.ceil(perPage / 4);
   return row;

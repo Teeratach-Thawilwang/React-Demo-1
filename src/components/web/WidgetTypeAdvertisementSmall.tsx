@@ -6,9 +6,9 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import BannerTypeAdvertisementSmall from "@components/web/BannerTypeAdvertisementSmall";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetDetailInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 
-export default React.memo(function WidgetTypeAdvertisementSmall(widget: WidgetDetailInterface) {
+export default React.memo(function WidgetTypeAdvertisementSmall(widget: WidgetInterface) {
   const banners = createSlideBanner(widget);
 
   return (
@@ -53,7 +53,7 @@ const Content = styled.div`
   align-items: center;
 `;
 
-function createSlideBanner(widget: WidgetDetailInterface) {
+function createSlideBanner(widget: WidgetInterface) {
   return widget.item?.map((banner) => {
     return (
       <SwiperSlide key={banner.id}>

@@ -18,13 +18,13 @@ const signFormSlice = createSlice({
   name: "signForm",
   initialState: initialState,
   reducers: {
-    fill: (state, action) => {
+    update: (state, action) => {
       state = { ...state, ...action.payload };
       return state;
     },
   },
 });
 
-export const { fill } = signFormSlice.actions;
+export const { update } = signFormSlice.actions;
 
 export default signFormSlice.reducer;

@@ -1,31 +1,30 @@
-import WidgetApi from "@api/frontside/WidgetApi";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { WidgetDetailApiParameter } from "@models/interfaces/frontside/WidgetDetailApiParameter";
-import { WidgetListApiParameter } from "@models/interfaces/frontside/WidgetListApiParameter";
+import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/WidgetIndexParameterInterface";
 import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInterface";
+import { WidgetShowParameterInterface } from "@models/interfaces/frontside/WidgetShowParameterInterface";
+import WidgetApi from "@repositories/frontside/WidgetApi";
 import WidgetService from "@services/frontside/WidgetService";
 import { RootState } from "@store/Store";
 
-class WidgetListAsyncThunk {
+class WidgetAsyncThunk {
   [key: string]: any;
 
-  public loadWidgetListAsync = createAsyncThunk("loadWidgetListAsync", async (params: WidgetListApiParameter, _store) => {
+  public index = createAsyncThunk("widgetIndex", async (params: WidgetIndexParameterInterface, _store) => {
     try {
-      return await WidgetApi.widgetList(params);
+      return await WidgetApi.index(params);
     } catch (error) {
       console.log("error", error);
-      // return null;
       throw error;
     }
   });
 
-  public loadWidgetDetailAsync = createAsyncThunk("loadWidgetDetailAsync", async (params: WidgetDetailApiParameter, store) => {
+  public show = createAsyncThunk("widgetShow", async (params: WidgetShowParameterInterface, store) => {
     try {
-      const widgetDetail = await WidgetApi.widgetDetail(params);
-      const widgetSliceState = WidgetService.getwidgetListStateFromRoot(store.getState() as RootState);
+      const widgetDetail = await WidgetApi.show(params);
+      const widgetSliceState = WidgetService.getStateFromRoot(store.getState() as RootState);
       let widgetList: WidgetListInterface = {
-        ...widgetSliceState.widgetList!,
+        ...widgetSliceState.widgets!,
       };
 
       if (widgetList != null && "data" in widgetList) {
@@ -53,12 +52,12 @@ class WidgetListAsyncThunk {
     }
   });
 
-  public loadWidgetTypeAdvertisementAsync = createAsyncThunk("loadWidgetTypeAdvertisementAsync", async (params: WidgetListApiParameter, store) => {
+  public loadWidgetTypeAdvertisement = createAsyncThunk("loadWidgetTypeAdvertisement", async (params: WidgetIndexParameterInterface, store) => {
     try {
       const widgets = await WidgetApi.widgetTypeAdvertisement(params);
-      const widgetListState = WidgetService.getwidgetListStateFromRoot(store.getState() as RootState);
+      const widgetListState = WidgetService.getStateFromRoot(store.getState() as RootState);
       let widgetList: WidgetListInterface = {
-        ...widgetListState.widgetList!,
+        ...widgetListState.widgets!,
       };
 
       if (widgetList != null && "data" in widgetList) {
@@ -83,4 +82,4 @@ class WidgetListAsyncThunk {
   });
 }
 
-export default new WidgetListAsyncThunk();
+export default new WidgetAsyncThunk();

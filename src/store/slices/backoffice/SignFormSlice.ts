@@ -5,6 +5,8 @@ import { SignFormStateInterface } from "@models/interfaces/frontside/SignFormSta
 
 const initialState: SignFormStateInterface = {
   isShow: false,
+  plane: false,
+  box: false,
   selector: SignFormState.LOGIN,
   email: "",
   nickname: "",
@@ -16,16 +18,13 @@ const signFormSlice = createSlice({
   name: "signForm",
   initialState: initialState,
   reducers: {
-    setIsShow: (state, action) => {
-      state.isShow = action.payload;
-    },
-    fill: (state, action) => {
+    update: (state, action) => {
       state = { ...state, ...action.payload };
       return state;
     },
   },
 });
 
-export const { setIsShow, fill } = signFormSlice.actions;
+export const { update } = signFormSlice.actions;
 
 export default signFormSlice.reducer;

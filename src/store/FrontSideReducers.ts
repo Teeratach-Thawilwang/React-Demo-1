@@ -2,18 +2,20 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+import catagoryReducer from "@store/slices/frontside/CatagorySlice";
 import signFormReducer from "@store/slices/frontside/SignFormSlice";
-import widgetListReducer from "@store/slices/frontside/WidgetListSlice";
+import widgetReducer from "@store/slices/frontside/WidgetSlice";
 
 const persistConfig = {
   key: "frontside",
   storage: storage,
-  blacklist: ["signForm", "widgetList"],
+  blacklist: ["signForm", "widgets", "catagories"],
 };
 
 const frontsideReducer = combineReducers({
   signForm: signFormReducer,
-  widgetList: widgetListReducer,
+  widgets: widgetReducer,
+  catagories: catagoryReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, frontsideReducer);

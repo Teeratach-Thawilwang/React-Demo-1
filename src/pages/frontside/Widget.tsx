@@ -6,7 +6,6 @@ import styled from "styled-components";
 import Footer from "@components/web/Footer";
 import GoTopButton from "@components/web/GoTopButton";
 import Navbar from "@components/web/Navbar";
-import SignForm from "@components/web/SignForm";
 import WidgetDetail from "@components/web/WidgetDetail";
 import WidgetTypeAdvertisementGroup from "@components/web/WidgetTypeAdvertisementGroup";
 import WidgetTypeAdvertisementMedium from "@components/web/WidgetTypeAdvertisementMedium";
@@ -16,13 +15,13 @@ import WidgetService from "@services/frontside/WidgetService";
 
 export default function Widget() {
   const { slug } = useParams();
-  const widget = WidgetService.getWidgetDetail(slug);
+  const widget = WidgetService.getBySlug(slug);
   const widgetTypeAdvertisementGroup = WidgetService.getWidgetTypeAdvertisement(BannerTypeEnum.ADVERTISEMENT_GROUP);
   const widgetTypeAdvertisementMedium = WidgetService.getWidgetTypeAdvertisement(BannerTypeEnum.ADVERTISEMENT_MEDIUM);
   const widgetTypeAdvertisementSmall = WidgetService.getWidgetTypeAdvertisement(BannerTypeEnum.ADVERTISEMENT_SMALL);
 
   useEffect(() => {
-    WidgetService.loadWidgetDetail({ slug: slug! });
+    WidgetService.loadBySlug({ slug: slug! });
     WidgetService.loadWidgetTypeAdvertisement({});
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
@@ -34,7 +33,6 @@ export default function Widget() {
   return (
     <Box>
       <Navbar />
-      <SignForm />
       {widgetTypeAdvertisementGroup && <WidgetTypeAdvertisementGroup {...widgetTypeAdvertisementGroup} />}
       {widget && <WidgetDetail {...widget} />}
       {widgetTypeAdvertisementMedium && <WidgetTypeAdvertisementMedium {...widgetTypeAdvertisementMedium} />}

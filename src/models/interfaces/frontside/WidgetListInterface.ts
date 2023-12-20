@@ -1,5 +1,5 @@
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetDetailInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 
 export interface WidgetListInterface extends PaginationInterface {
-  data: WidgetDetailInterface[];
+  data: WidgetInterface[];
 }

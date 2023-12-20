@@ -4,7 +4,7 @@ module.exports = {
     "^react(.*)$",
     "^styled(.*)$",
     "^swiper(.*)$",
-    "^@(assets|components|enums|mock|models|pages|routes|services|store|utils)/(.*)$",
+    "^@(components|enums|mock|models|pages|routes|repositories|services|store|utils)/(.*)$",
     "^[./]"
   ],
   plugins: [require.resolve("@trivago/prettier-plugin-sort-imports")],

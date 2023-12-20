@@ -1,17 +1,16 @@
 import { WidgetTypeEnum } from "@enums/frontside/WidgetTypeEnum";
 import { widgetTypeAdvertisementGroupMock } from "@mock/frontside/WidgetTypeAdvertisementGroupMock";
+import { widgetTypeAdvertisementMediumMock } from "@mock/frontside/WidgetTypeAdvertisementMediumMock";
+import { widgetTypeAdvertisementSmallMock } from "@mock/frontside/WidgetTypeAdvertisementSmallMock";
 import { widgetTypeChapterGroupMock } from "@mock/frontside/WidgetTypeChapterGroupMock";
 import { widgetTypeStoryListMock } from "@mock/frontside/WidgetTypeStoryListMock";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetDetailInterface";
-import { WidgetListApiParameter } from "@models/interfaces/frontside/WidgetListApiParameter";
+import { widgetTypeStoryWindowMock } from "@mock/frontside/WidgetTypeStoryWindowMock";
+import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/WidgetIndexParameterInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInterface";
 
-import { widgetTypeAdvertisementMediumMock } from "./WidgetTypeAdvertisementMediumMock";
-import { widgetTypeAdvertisementSmallMock } from "./WidgetTypeAdvertisementSmallMock";
-import { widgetTypeStoryWindowMock } from "./WidgetTypeStoryWindowMock";
-
 class WidgetMock {
-  private data: WidgetDetailInterface[] = [
+  private data: WidgetInterface[] = [
     widgetTypeAdvertisementGroupMock("โฆษณาเดือนธันวาคม"),
     widgetTypeStoryListMock("โปรโมท-1"),
     widgetTypeStoryListMock("โปรโมท-2"),
@@ -21,7 +20,7 @@ class WidgetMock {
     widgetTypeAdvertisementSmallMock("ป้ายโฆษณา-small"),
   ];
 
-  public index(_params: WidgetListApiParameter, shouldSuccess: boolean): Promise<WidgetListInterface> {
+  public index(_params: WidgetIndexParameterInterface, shouldSuccess: boolean): Promise<WidgetListInterface> {
     return new Promise((resolve, reject) => {
       const response: WidgetListInterface = {
         current: 1,
@@ -45,7 +44,7 @@ class WidgetMock {
     });
   }
 
-  public show(slug: string, page?: number, shouldSuccess?: boolean): Promise<WidgetDetailInterface> {
+  public show(slug: string, page?: number, shouldSuccess?: boolean): Promise<WidgetInterface> {
     return new Promise((resolve, reject) => {
       let response: any = null;
       switch (slug) {

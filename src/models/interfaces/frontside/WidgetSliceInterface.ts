@@ -1,7 +1,7 @@
 import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInterface";
 
-export interface WidgetListSliceInterface {
-  widgetList: WidgetListInterface | null;
-  loading: boolean;
+export interface WidgetSliceInterface {
+  widgets: WidgetListInterface | null;
+  isLoading: boolean;
   error: string;
 }
