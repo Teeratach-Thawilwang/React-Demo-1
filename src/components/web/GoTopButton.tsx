@@ -1,10 +1,36 @@
-import styled from "styled-components";
-
 import icon from "@assets/icon/expand_up_double.svg";
 
+import { useEffect, useState } from "react";
+
+import styled from "styled-components";
+
 export default function GoTopButton() {
+  const [isShow, setIsShow] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY <= 0) {
+        setIsShow(false);
+      } else {
+        setIsShow(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <Box onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth" })}>
+    <Box
+      $isShow={isShow}
+      onClick={() => {
+        window.scroll({ top: 0, left: 0, behavior: "smooth" });
+        console.log("TopButton", window.scrollY);
+      }}
+    >
       <Content>
         <img src={icon} alt="" />
         <p>Top</p>
@@ -13,7 +39,8 @@ export default function GoTopButton() {
   );
 }
 
-const Box = styled.div`
+const Box = styled.div<{ $isShow: boolean }>`
+  display: ${(props) => (props.$isShow ? "block" : "none")};
   width: 40px;
   height: 60px;
   background-color: #000;
