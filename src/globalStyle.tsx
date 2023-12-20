@@ -55,6 +55,24 @@ body {
   height: 10px;
   background-color: #FFF;
 }
+
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #cacaca;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #262626; 
+}
 `;
 
 export default GlobalStyle;
