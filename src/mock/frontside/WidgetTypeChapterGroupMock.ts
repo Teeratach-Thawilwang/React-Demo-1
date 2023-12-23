@@ -2,7 +2,7 @@ import { BannerTypeEnum } from "@enums/frontside/BannerTypeEnum";
 import { ImageCollectionEnum } from "@enums/frontside/ImageCollectionEnum";
 import { WidgetTypeEnum } from "@enums/frontside/WidgetTypeEnum";
 import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { shuffleArray } from "@utils/Helpers";
 
 const defaultChapterGroupBanners: BannerInterface[] = [
@@ -11,7 +11,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 55: วันปกติทั่วไปของนักวิทยาศาสตร์เฒ่า",
     title: "Boruto",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/boruto/55",
+    link: "/story/boruto/55",
     images: [
       {
         id: 1,
@@ -28,7 +28,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 14: อภินิหารหมัดเออิโนะ มารุจิ",
     title: "Boxer Kali",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/boxer-kali/14",
+    link: "/story/boxer-kali/14",
     images: [
       {
         id: 1,
@@ -45,7 +45,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 1109: นิกะ",
     title: "One Piece",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/one-piece/1109",
+    link: "/story/one-piece/1109",
     images: [
       {
         id: 1,
@@ -62,7 +62,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 218: ปีศาจร้ายไซบ็อก",
     title: "One Punch Man",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/one-punch-man/218",
+    link: "/story/one-punch-man/218",
     images: [
       {
         id: 1,
@@ -79,7 +79,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 354: เรือรบไอนํ้า",
     title: "Dr.stone",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/dr.stone/354",
+    link: "/story/dr.stone/354",
     images: [
       {
         id: 1,
@@ -96,7 +96,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 55: วันปกติทั่วไป",
     title: "Boruto",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/boruto/55",
+    link: "/story/boruto/55",
     images: [
       {
         id: 1,
@@ -113,7 +113,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 14: อภินิหาร",
     title: "Boxer Kali",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/boxer-kali/14",
+    link: "/story/boxer-kali/14",
     images: [
       {
         id: 1,
@@ -130,7 +130,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 1109: นิกะ",
     title: "One Piece",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/one-piece/1109",
+    link: "/story/one-piece/1109",
     images: [
       {
         id: 1,
@@ -147,7 +147,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 218: ปีศาจร้ายไซบ็อก",
     title: "One Punch Man",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/one-punch-man/218",
+    link: "/story/one-punch-man/218",
     images: [
       {
         id: 1,
@@ -164,7 +164,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 354: เรือรบไอนํ้า",
     title: "Dr.stone",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/dr.stone/354",
+    link: "/story/dr.stone/354",
     images: [
       {
         id: 1,
@@ -181,7 +181,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 55: วันปกติทั่วไป",
     title: "Boruto",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/boruto/55",
+    link: "/story/boruto/55",
     images: [
       {
         id: 1,
@@ -198,7 +198,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 14: อภินิหาร",
     title: "Boxer Kali",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/boxer-kali/14",
+    link: "/story/boxer-kali/14",
     images: [
       {
         id: 1,
@@ -215,7 +215,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 1109: นิกะ",
     title: "One Piece",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/one-piece/1109",
+    link: "/story/one-piece/1109",
     images: [
       {
         id: 1,
@@ -232,7 +232,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 218: ปีศาจร้ายไซบ็อก",
     title: "One Punch Man",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/one-punch-man/218",
+    link: "/story/one-punch-man/218",
     images: [
       {
         id: 1,
@@ -249,7 +249,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 354: เรือรบไอนํ้า",
     title: "Dr.stone",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/dr.stone/354",
+    link: "/story/dr.stone/354",
     images: [
       {
         id: 1,
@@ -266,7 +266,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
     name: "ตอนที่ 55: วันปกติทั่วไป",
     title: "Boruto",
     type: BannerTypeEnum.CHAPTER,
-    link: "/manga/boruto/55",
+    link: "/story/boruto/55",
     images: [
       {
         id: 1,
@@ -280,7 +280,7 @@ const defaultChapterGroupBanners: BannerInterface[] = [
   },
 ];
 
-const widgetTypeChapterGroupMocks: WidgetDetailInterface = {
+const widgetTypeChapterGroupMocks: WidgetInterface = {
   id: 4,
   sequence: 4,
   slug: "last-updated",
@@ -296,7 +296,7 @@ const widgetTypeChapterGroupMocks: WidgetDetailInterface = {
   },
 };
 
-export function widgetTypeChapterGroupMock(page: number): WidgetDetailInterface {
+export function widgetTypeChapterGroupMock(page: number): WidgetInterface {
   let banners = shuffleArray(defaultChapterGroupBanners).map((banner: BannerInterface, key: number) => {
     banner.id = (page - 1) * 16 + key;
     return banner;

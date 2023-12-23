@@ -9,14 +9,14 @@ import BannerTypeAdvertisementMedium from "@components/web/BannerTypeAdvertiseme
 import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 
 export default React.memo(function WidgetTypeAdvertisementMedium(widget: WidgetInterface) {
-  const banners = createSlideBanner2(widget);
+  const banners = createSlideBanner(widget);
 
   return (
     <Box>
       <Content>
         <Swiper
           autoplay={{
-            delay: 1000,
+            delay: 2000,
             disableOnInteraction: true,
           }}
           slidesPerView={1}
@@ -36,18 +36,15 @@ export default React.memo(function WidgetTypeAdvertisementMedium(widget: WidgetI
 });
 
 const Box = styled.div`
-  width: 1000px;
+  width: 720px;
   height: 220px;
   margin: 55px auto 0px auto;
-
-  display: flex;
-  justify-content: center;
 
   /* border: 1px solid red; */
 `;
 
 const Content = styled.div`
-  width: 720px;
+  width: 100%;
   height: 200px; // Banner content's height + 20px
   /* border: 1px solid red; */
 
@@ -57,11 +54,11 @@ const Content = styled.div`
   align-items: center;
 `;
 
-function createSlideBanner2(widget: WidgetInterface) {
+function createSlideBanner(widget: WidgetInterface) {
   return widget.item?.map((banner) => {
     return (
       <SwiperSlide key={banner.id}>
-        <BannerTypeAdvertisementMedium {...banner} />
+        <BannerTypeAdvertisementMedium {...banner} key={banner.id} />
       </SwiperSlide>
     );
   });

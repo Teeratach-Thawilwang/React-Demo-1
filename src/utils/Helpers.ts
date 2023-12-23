@@ -8,3 +8,15 @@ export function shuffleArray(array: any) {
     return { ...item, id: key };
   });
 }
+
+export function formatNumber(numb: number) {
+  if (numb >= 1000000) {
+    const roundedNum = Math.round(numb / 100000) / 10;
+    return `${roundedNum}M`;
+  } else if (numb >= 1000) {
+    const roundedNum = Math.round(numb / 100) / 10;
+    return `${roundedNum}K`;
+  } else {
+    return numb.toString();
+  }
+}

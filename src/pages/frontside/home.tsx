@@ -15,16 +15,18 @@ export default function Home() {
   }, []);
 
   return (
-    <Box>
-      <Navbar />
-      <WidgetList />
-      <Footer />
+    <>
+      <Box>
+        <Navbar />
+        <WidgetList />
+      </Box>
       <GoTopButton />
-    </Box>
+      <Footer />
+    </>
   );
 }
 
 const Box = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 150px);
 `;

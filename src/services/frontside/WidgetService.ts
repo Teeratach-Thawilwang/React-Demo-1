@@ -3,8 +3,8 @@ import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/Widg
 import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { WidgetShowParameterInterface } from "@models/interfaces/frontside/WidgetShowParameterInterface";
 import { WidgetSliceInterface } from "@models/interfaces/frontside/WidgetSliceInterface";
-import WidgetAsyncThunk from "@store/AsyncThunk/frontside/WidgetAsyncThunk";
 import store, { RootState, useAppSelector } from "@store/Store";
+import WidgetAsyncThunk from "@store/asyncThunk/frontside/WidgetAsyncThunk";
 import { update } from "@store/slices/frontside/WidgetSlice";
 
 export class WidgetService {

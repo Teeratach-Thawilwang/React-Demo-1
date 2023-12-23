@@ -2,7 +2,7 @@ import { BannerTypeEnum } from "@enums/frontside/BannerTypeEnum";
 import { ImageCollectionEnum } from "@enums/frontside/ImageCollectionEnum";
 import { WidgetTypeEnum } from "@enums/frontside/WidgetTypeEnum";
 import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { shuffleArray } from "@utils/Helpers";
 
 const defaultAdvertisementSmallBanners: BannerInterface[] = [
@@ -76,7 +76,7 @@ const defaultAdvertisementSmallBanners: BannerInterface[] = [
   },
 ];
 
-const widgetTypeAdvertisementSmallMocks: WidgetDetailInterface = {
+const widgetTypeAdvertisementSmallMocks: WidgetInterface = {
   id: 7,
   sequence: 7,
   slug: "small-advertisement",
@@ -85,7 +85,7 @@ const widgetTypeAdvertisementSmallMocks: WidgetDetailInterface = {
   item: [],
 };
 
-export function widgetTypeAdvertisementSmallMock(slug: string): WidgetDetailInterface {
+export function widgetTypeAdvertisementSmallMock(slug: string): WidgetInterface {
   let items = shuffleArray(defaultAdvertisementSmallBanners);
 
   widgetTypeAdvertisementSmallMocks.slug = slug;

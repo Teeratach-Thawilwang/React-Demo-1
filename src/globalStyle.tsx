@@ -26,6 +26,7 @@ button {
 body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 .swiper {

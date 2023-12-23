@@ -12,7 +12,7 @@ export default function RegisterForm() {
   };
 
   function setSignFormData(event: React.ChangeEvent<HTMLInputElement>): void {
-    SignFormService.fill({ [event.target.name]: event.target.value });
+    SignFormService.update({ [event.target.name]: event.target.value });
   }
 
   return (
@@ -21,12 +21,14 @@ export default function RegisterForm() {
       <Input name="nickname" placeholder=" ชื่อเล่น" value={signFormState.nickname ?? undefined} onChange={(e) => setSignFormData(e)} />
       <Input
         name="password"
+        type="password"
         placeholder=" รหัสผ่านอย่างน้อย 8 ตัวอักษร"
         value={signFormState.password ?? undefined}
         onChange={(e) => setSignFormData(e)}
       />
       <Input
         name="confirmPassword"
+        type="password"
         placeholder=" ยืนยันรหัสผ่าน"
         value={signFormState.confirmPassword ?? undefined}
         onChange={(e) => setSignFormData(e)}

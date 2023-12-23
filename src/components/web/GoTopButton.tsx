@@ -1,8 +1,8 @@
-import icon from "@assets/icon/expand_up_double.svg";
-
 import { useEffect, useState } from "react";
 
 import styled from "styled-components";
+
+import icon from "@assets/icon/expand_up_double.svg";
 
 export default function GoTopButton() {
   const [isShow, setIsShow] = useState(false);
@@ -24,13 +24,7 @@ export default function GoTopButton() {
   }, []);
 
   return (
-    <Box
-      $isShow={isShow}
-      onClick={() => {
-        window.scroll({ top: 0, left: 0, behavior: "smooth" });
-        console.log("TopButton", window.scrollY);
-      }}
-    >
+    <Box $isShow={isShow} onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth" })}>
       <Content>
         <img src={icon} alt="" />
         <p>Top</p>

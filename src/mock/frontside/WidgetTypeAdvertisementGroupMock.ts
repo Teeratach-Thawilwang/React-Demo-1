@@ -2,7 +2,7 @@ import { BannerTypeEnum } from "@enums/frontside/BannerTypeEnum";
 import { ImageCollectionEnum } from "@enums/frontside/ImageCollectionEnum";
 import { WidgetTypeEnum } from "@enums/frontside/WidgetTypeEnum";
 import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 
 const defaultAdvertisementGroupBanners: BannerInterface[] = [
   {
@@ -75,7 +75,7 @@ const defaultAdvertisementGroupBanners: BannerInterface[] = [
   },
 ];
 
-const widgetTypeAdvertisementGroupMocks: WidgetDetailInterface = {
+const widgetTypeAdvertisementGroupMocks: WidgetInterface = {
   id: 1,
   sequence: 1,
   slug: "โฆษณาเดือนธันวาคม",
@@ -84,7 +84,7 @@ const widgetTypeAdvertisementGroupMocks: WidgetDetailInterface = {
   item: defaultAdvertisementGroupBanners,
 };
 
-export function widgetTypeAdvertisementGroupMock(slug: string): WidgetDetailInterface {
+export function widgetTypeAdvertisementGroupMock(slug: string): WidgetInterface {
   widgetTypeAdvertisementGroupMocks.slug = slug;
   return widgetTypeAdvertisementGroupMocks;
 }

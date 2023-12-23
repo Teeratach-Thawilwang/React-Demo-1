@@ -2,7 +2,7 @@ import { BannerTypeEnum } from "@enums/frontside/BannerTypeEnum";
 import { ImageCollectionEnum } from "@enums/frontside/ImageCollectionEnum";
 import { WidgetTypeEnum } from "@enums/frontside/WidgetTypeEnum";
 import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { shuffleArray } from "@utils/Helpers";
 
 const defaultAdvertisementMediumBanners: BannerInterface[] = [
@@ -76,16 +76,19 @@ const defaultAdvertisementMediumBanners: BannerInterface[] = [
   },
 ];
 
-const widgetTypeAdvertisementMediumMocks: WidgetDetailInterface = {
+const widgetTypeAdvertisementMediumMocks: WidgetInterface = {
   id: 5,
   sequence: 5,
   slug: "medium-advertisement",
   title: "ป้ายโฆษณาขนาดปานกลาง",
   type: WidgetTypeEnum.ADVERTISEMENT_MEDIUM,
-  item: shuffleArray(defaultAdvertisementMediumBanners),
+  item: [],
 };
 
-export function widgetTypeAdvertisementMediumMock(slug: string): WidgetDetailInterface {
+export function widgetTypeAdvertisementMediumMock(slug: string): WidgetInterface {
+  let item = shuffleArray(defaultAdvertisementMediumBanners);
+
   widgetTypeAdvertisementMediumMocks.slug = slug;
+  widgetTypeAdvertisementMediumMocks.item = item;
   return widgetTypeAdvertisementMediumMocks;
 }

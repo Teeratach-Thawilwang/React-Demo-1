@@ -4,7 +4,7 @@ import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
 
 export default function BannerTypeStoryWindow(banner: BannerInterface) {
   return (
-    <Box onClick={() => window.open("//" + banner.link, "_blank")}>
+    <Box onClick={() => window.open(banner.link)}>
       <Left>
         <img src={banner.images[0].desktop} alt="HomeIcon" />
       </Left>

@@ -6,36 +6,41 @@ import styled from "styled-components";
 import Footer from "@components/web/Footer";
 import GoTopButton from "@components/web/GoTopButton";
 import Navbar from "@components/web/Navbar";
-import WidgetDetail from "@components/web/WidgetDetail";
+import StoryChapterList from "@components/web/StoryChapterList";
+import StoryDetailHeader from "@components/web/StoryDetailHeader";
 import WidgetTypeAdvertisementGroup from "@components/web/WidgetTypeAdvertisementGroup";
 import WidgetTypeAdvertisementMedium from "@components/web/WidgetTypeAdvertisementMedium";
 import WidgetTypeAdvertisementSmall from "@components/web/WidgetTypeAdvertisementSmall";
 import { BannerTypeEnum } from "@enums/frontside/BannerTypeEnum";
+import StoryService from "@services/frontside/StoryService";
 import WidgetService from "@services/frontside/WidgetService";
 
-export default function Widget() {
+export default function StoryDetail() {
   const { slug } = useParams();
-  const widget = WidgetService.getBySlug(slug);
+  const storyState = StoryService.getState();
+  const story = storyState.story;
+
   const widgetTypeAdvertisementGroup = WidgetService.getWidgetTypeAdvertisement(BannerTypeEnum.ADVERTISEMENT_GROUP);
   const widgetTypeAdvertisementMedium = WidgetService.getWidgetTypeAdvertisement(BannerTypeEnum.ADVERTISEMENT_MEDIUM);
   const widgetTypeAdvertisementSmall = WidgetService.getWidgetTypeAdvertisement(BannerTypeEnum.ADVERTISEMENT_SMALL);
 
   useEffect(() => {
-    WidgetService.loadBySlug({ slug: slug! });
+    StoryService.loadBySlug({ slug: slug! });
+    StoryService.loadChapterList({ slug: slug!, page: 2 });
     WidgetService.loadWidgetTypeAdvertisement({});
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   useEffect(() => {
-    document.title = widget?.title ?? "Lunar";
-  }, [widget]);
+    document.title = story?.name ?? "Lunar";
+  }, [story]);
 
   return (
     <>
       <Box>
         <Navbar />
         {widgetTypeAdvertisementGroup && <WidgetTypeAdvertisementGroup {...widgetTypeAdvertisementGroup} />}
-        {widget && <WidgetDetail {...widget} />}
+        <StoryDetailHeader />
+        <StoryChapterList />
         {widgetTypeAdvertisementMedium && <WidgetTypeAdvertisementMedium {...widgetTypeAdvertisementMedium} />}
         {widgetTypeAdvertisementSmall && <WidgetTypeAdvertisementSmall {...widgetTypeAdvertisementSmall} />}
       </Box>
@@ -48,4 +53,6 @@ export default function Widget() {
 const Box = styled.div`
   width: 100%;
   min-height: calc(100vh - 150px);
+
+  position: relative;
 `;

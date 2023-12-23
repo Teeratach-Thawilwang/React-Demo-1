@@ -2,7 +2,7 @@ import { BannerTypeEnum } from "@enums/frontside/BannerTypeEnum";
 import { ImageCollectionEnum } from "@enums/frontside/ImageCollectionEnum";
 import { WidgetTypeEnum } from "@enums/frontside/WidgetTypeEnum";
 import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { shuffleArray } from "@utils/Helpers";
 
 const defaultStoryWindowBanners: BannerInterface[] = [
@@ -11,7 +11,7 @@ const defaultStoryWindowBanners: BannerInterface[] = [
     name: "banner - One Piece",
     title: "One Piece",
     type: BannerTypeEnum.STORY_WINDOW,
-    link: "www.google.com",
+    link: "/story/one-piece",
     images: [
       {
         id: 1,
@@ -44,7 +44,7 @@ const defaultStoryWindowBanners: BannerInterface[] = [
     name: "banner - One Punch Man",
     title: "One Punch Man",
     type: BannerTypeEnum.STORY_WINDOW,
-    link: "www.google.com",
+    link: "/story/one-punch-man",
     images: [
       {
         id: 1,
@@ -77,7 +77,7 @@ const defaultStoryWindowBanners: BannerInterface[] = [
     name: "banner - Boruto",
     title: "Boruto",
     type: BannerTypeEnum.STORY_WINDOW,
-    link: "www.google.com",
+    link: "/story/boruto",
     images: [
       {
         id: 1,
@@ -110,7 +110,7 @@ const defaultStoryWindowBanners: BannerInterface[] = [
     name: "banner - Bleach",
     title: "Bleach",
     type: BannerTypeEnum.STORY_WINDOW,
-    link: "www.google.com",
+    link: "/story/bleach",
     images: [
       {
         id: 1,
@@ -140,7 +140,7 @@ const defaultStoryWindowBanners: BannerInterface[] = [
   },
 ];
 
-const widgetTypeStoryWindowMocks: WidgetDetailInterface = {
+const widgetTypeStoryWindowMocks: WidgetInterface = {
   id: 6,
   sequence: 6,
   slug: "story-window-6",
@@ -149,7 +149,7 @@ const widgetTypeStoryWindowMocks: WidgetDetailInterface = {
   item: shuffleArray(defaultStoryWindowBanners),
 };
 
-export function widgetTypeStoryWindowMock(slug: string): WidgetDetailInterface {
+export function widgetTypeStoryWindowMock(slug: string): WidgetInterface {
   widgetTypeStoryWindowMocks.slug = slug;
   return widgetTypeStoryWindowMocks;
 }

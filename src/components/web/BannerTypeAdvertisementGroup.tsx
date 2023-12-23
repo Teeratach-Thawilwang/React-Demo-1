@@ -5,7 +5,7 @@ import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
 export default function BannerTypeAdvertisementGroup(banner: BannerInterface) {
   return (
     <Box onClick={() => window.open("//" + banner.link, "_blank")}>
-      <img src={banner.images[0].desktop} alt="HomeIcon" />
+      <img src={banner.images[0].desktop} alt="banner_group" />
     </Box>
   );
 }

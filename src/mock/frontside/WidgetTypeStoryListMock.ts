@@ -2,7 +2,7 @@ import { BannerTypeEnum } from "@enums/frontside/BannerTypeEnum";
 import { ImageCollectionEnum } from "@enums/frontside/ImageCollectionEnum";
 import { WidgetTypeEnum } from "@enums/frontside/WidgetTypeEnum";
 import { BannerInterface } from "@models/interfaces/frontside/BannerInterface";
-import { WidgetDetailInterface } from "@models/interfaces/frontside/WidgetInterface";
+import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { shuffleArray } from "@utils/Helpers";
 
 const defaultStoryListBanners: BannerInterface[] = [
@@ -11,7 +11,7 @@ const defaultStoryListBanners: BannerInterface[] = [
     name: "banner - One Piece",
     title: "One Piece",
     type: BannerTypeEnum.STORY,
-    link: "www.google.com",
+    link: "/story/one-piece",
     images: [
       {
         id: 1,
@@ -28,7 +28,7 @@ const defaultStoryListBanners: BannerInterface[] = [
     name: "banner - One Punch Man",
     title: "One Punch Man",
     type: BannerTypeEnum.STORY,
-    link: "www.google.com",
+    link: "/story/one-punch-man",
     images: [
       {
         id: 1,
@@ -45,7 +45,7 @@ const defaultStoryListBanners: BannerInterface[] = [
     name: "banner - Boruto",
     title: "Boruto",
     type: BannerTypeEnum.STORY,
-    link: "www.google.com",
+    link: "/story/boruto",
     images: [
       {
         id: 1,
@@ -62,7 +62,7 @@ const defaultStoryListBanners: BannerInterface[] = [
     name: "banner - Dr.stone",
     title: "Dr.stone",
     type: BannerTypeEnum.STORY,
-    link: "www.google.com",
+    link: "/story/dr.stone",
     images: [
       {
         id: 1,
@@ -79,7 +79,7 @@ const defaultStoryListBanners: BannerInterface[] = [
     name: "banner - Boxer Kali",
     title: "Boxer Kali",
     type: BannerTypeEnum.STORY,
-    link: "www.google.com",
+    link: "/story/boxer-kali",
     images: [
       {
         id: 1,
@@ -93,7 +93,7 @@ const defaultStoryListBanners: BannerInterface[] = [
   },
 ];
 
-const widgetTypeStoryListMock1: WidgetDetailInterface = {
+const widgetTypeStoryListMock1: WidgetInterface = {
   id: 2,
   sequence: 2,
   slug: "โปรโมท-1",
@@ -102,7 +102,7 @@ const widgetTypeStoryListMock1: WidgetDetailInterface = {
   item: shuffleArray(defaultStoryListBanners),
 };
 
-const widgetTypeStoryListMock2: WidgetDetailInterface = {
+const widgetTypeStoryListMock2: WidgetInterface = {
   id: 3,
   sequence: 3,
   slug: "โปรโมท-2",
@@ -111,7 +111,7 @@ const widgetTypeStoryListMock2: WidgetDetailInterface = {
   item: shuffleArray(defaultStoryListBanners),
 };
 
-export function widgetTypeStoryListMock(slug: string): WidgetDetailInterface {
+export function widgetTypeStoryListMock(slug: string): WidgetInterface {
   let data: any;
   switch (slug) {
     case "โปรโมท-1":
