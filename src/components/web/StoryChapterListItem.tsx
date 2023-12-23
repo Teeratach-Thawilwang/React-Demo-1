@@ -17,7 +17,9 @@ export default function StoryChapterListItem(props: { chapter: ChapterListItemIn
       <ChapterName>
         ตอนที่: {chapter.chapter_number} - {chapter.name}
       </ChapterName>
-      <ChapterReleaseDate>{new Date(chapter.release_date).toLocaleDateString()}</ChapterReleaseDate>
+      <ChapterReleaseDate>
+        {new Date(chapter.release_date).toLocaleDateString(import.meta.env.VITE_TIME_ZONE, { year: "numeric", month: "short", day: "numeric" })}
+      </ChapterReleaseDate>
       <Score>
         <img src={favoriteFillIcon} alt="score_icon" />
         {chapter.score}
