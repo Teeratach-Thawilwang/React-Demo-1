@@ -26,7 +26,7 @@ export default function StoryDetail() {
 
   useEffect(() => {
     StoryService.loadBySlug({ slug: slug! });
-    StoryService.loadChapterList({ slug: slug!, page: 2 });
+    StoryService.loadChapterList({ slug: slug!, page: 1 });
     WidgetService.loadWidgetTypeAdvertisement({});
   }, []);
 
