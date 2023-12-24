@@ -31,9 +31,11 @@ const Box = styled.div<{ $isShow: boolean }>`
 `;
 
 const Item = styled.div`
+  /* border: 1px solid red; */
   height: 40px;
   color: #000;
   font-size: 18px;
+  white-space: nowrap;
 
   display: flex;
   justify-content: left;

@@ -81,6 +81,18 @@ const data: CatagoryInterface[] = [
     name: "สยองขวัญ",
     type: CatagoryTypeEnum.NOVEL,
   },
+  {
+    id: 7,
+    slug: "ผจญภัย",
+    name: "ผจญภัย",
+    type: CatagoryTypeEnum.NOVEL,
+  },
+  {
+    id: 7,
+    slug: "ต่อสู้",
+    name: "ต่อสู้",
+    type: CatagoryTypeEnum.NOVEL,
+  },
 ];
 
 export default new CatagoryMock();

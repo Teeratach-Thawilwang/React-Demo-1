@@ -1,5 +1,3 @@
-import expandRight from "@assets/icon/expand_right.svg";
-
 import { useRef } from "react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +10,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
+import expandRight from "@assets/icon/expand_right.svg";
 import BannerTypeStory from "@components/web/BannerTypeStory";
 import SwiperButton from "@components/web/SwiperButton";
 import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
@@ -54,7 +53,7 @@ export default React.memo(function WidgetTypeStoryList(widget: WidgetInterface) 
 
 const Box = styled.div`
   width: 1100px;
-  height: 500px;
+  height: 480px;
   margin: 20px auto 0px auto;
 
   /* border: 1px solid red; */
@@ -105,7 +104,7 @@ const LinkDetail = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  height: 400px;
+  height: 380px;
   display: flex;
   justify-content: center;
   align-items: center;

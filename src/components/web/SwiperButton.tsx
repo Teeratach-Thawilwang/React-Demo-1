@@ -34,6 +34,7 @@ export default function SwiperButton(props: SwiperButton) {
 }
 
 const Button = styled.div`
+  /* border: 1px solid red; */
   img {
     width: 50px;
     height: 50px;

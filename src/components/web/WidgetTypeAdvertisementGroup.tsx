@@ -16,7 +16,7 @@ export default React.memo(function WidgetTypeAdvertisementGroup(widget: WidgetIn
 
 const Box = styled.div`
   width: 720px;
-  margin: 20px auto 0px auto;
+  margin: 20px auto 55px auto;
 
   /* border: 1px solid red; */
 `;

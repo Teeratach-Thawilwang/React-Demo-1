@@ -16,7 +16,7 @@ export default function BannerTypeStory(banner: BannerInterface) {
 
 const Box = styled.div`
   width: 250px;
-  height: 400px;
+  height: 380px;
   /* border: 1px solid red; */
 
   img {
@@ -46,11 +46,13 @@ const Box = styled.div`
 
 const Title = styled.div`
   width: 230px;
-  height: 55px;
+  height: 35px;
   margin: 0px 10px 10px 10px;
   font-size: 20px;
 
   white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
   overflow: hidden; /* ทำให้เนื้อหาที่เกินซ่อนไว้ */
   text-overflow: ellipsis;
+
+  /* border: 1px solid red; */
 `;
