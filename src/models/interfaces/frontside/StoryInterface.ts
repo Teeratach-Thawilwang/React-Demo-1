@@ -1,4 +1,4 @@
-import { CatagoryTypeEnum } from "@enums/frontside/CatagoryTypeEnum";
+import { CategoryTypeEnum } from "@enums/frontside/CategoryTypeEnum";
 import { ChapterListInterface } from "@models/interfaces/frontside/ChapterListInterface";
 import { ImageInterface } from "@models/interfaces/frontside/ImageInterface";
 
@@ -13,7 +13,7 @@ export interface StoryInterface {
   };
   score: number;
   view_count: number;
-  type: CatagoryTypeEnum;
+  type: CategoryTypeEnum;
   cover_image: ImageInterface;
   chapters: ChapterListInterface | null;
 }

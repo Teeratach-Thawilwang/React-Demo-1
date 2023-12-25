@@ -1,5 +1,5 @@
-import { StoryShowParameterInterface } from "@models/interfaces/frontside/StoryShowParameterInterface";
-import { StorySliceInterface } from "@models/interfaces/frontside/StorySliceInterface";
+import { StoryShowParameterInterface } from "@models/interfaces/frontside/apiParameter/StoryShowParameterInterface";
+import { StorySliceInterface } from "@models/interfaces/frontside/slices/StorySliceInterface";
 import store, { RootState, useAppSelector } from "@store/Store";
 import StoryAsyncThunk from "@store/asyncThunk/frontside/StoryAsyncThunk";
 import { update } from "@store/slices/frontside/StorySlice";

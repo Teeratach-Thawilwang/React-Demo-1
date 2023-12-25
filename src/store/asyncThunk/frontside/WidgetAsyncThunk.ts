@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/WidgetIndexParameterInterface";
 import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInterface";
-import { WidgetShowParameterInterface } from "@models/interfaces/frontside/WidgetShowParameterInterface";
+import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/apiParameter/WidgetIndexParameterInterface";
+import { WidgetShowParameterInterface } from "@models/interfaces/frontside/apiParameter/WidgetShowParameterInterface";
 import WidgetApi from "@repositories/frontside/WidgetApi";
 import WidgetService from "@services/frontside/WidgetService";
 import { RootState } from "@store/Store";

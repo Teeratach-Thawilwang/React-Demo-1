@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
 
-import { StorySliceInterface } from "@models/interfaces/frontside/StorySliceInterface";
+import { StorySliceInterface } from "@models/interfaces/frontside/slices/StorySliceInterface";
 import StoryAsyncThunk from "@store/asyncThunk/frontside/StoryAsyncThunk";
 
 const initialState: StorySliceInterface = {

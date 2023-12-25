@@ -5,9 +5,9 @@ import { widgetTypeAdvertisementSmallMock } from "@mock/frontside/WidgetTypeAdve
 import { widgetTypeChapterGroupMock } from "@mock/frontside/WidgetTypeChapterGroupMock";
 import { widgetTypeStoryListMock } from "@mock/frontside/WidgetTypeStoryListMock";
 import { widgetTypeStoryWindowMock } from "@mock/frontside/WidgetTypeStoryWindowMock";
-import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/WidgetIndexParameterInterface";
 import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInterface";
+import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/apiParameter/WidgetIndexParameterInterface";
 
 class WidgetMock {
   private data: WidgetInterface[] = [

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { StoryInterface } from "@models/interfaces/frontside/StoryInterface";
-import { StoryShowParameterInterface } from "@models/interfaces/frontside/StoryShowParameterInterface";
+import { StoryShowParameterInterface } from "@models/interfaces/frontside/apiParameter/StoryShowParameterInterface";
 import StoryApi from "@repositories/frontside/StoryApi";
 import StoryService from "@services/frontside/StoryService";
 import { RootState } from "@store/Store";

@@ -1,8 +1,8 @@
 import { BannerTypeEnum } from "@enums/frontside/BannerTypeEnum";
-import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/WidgetIndexParameterInterface";
 import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
-import { WidgetShowParameterInterface } from "@models/interfaces/frontside/WidgetShowParameterInterface";
-import { WidgetSliceInterface } from "@models/interfaces/frontside/WidgetSliceInterface";
+import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/apiParameter/WidgetIndexParameterInterface";
+import { WidgetShowParameterInterface } from "@models/interfaces/frontside/apiParameter/WidgetShowParameterInterface";
+import { WidgetSliceInterface } from "@models/interfaces/frontside/slices/WidgetSliceInterface";
 import store, { RootState, useAppSelector } from "@store/Store";
 import WidgetAsyncThunk from "@store/asyncThunk/frontside/WidgetAsyncThunk";
 import { update } from "@store/slices/frontside/WidgetSlice";

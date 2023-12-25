@@ -1,8 +1,8 @@
 import WidgetMock from "@mock/frontside/WidgetMock";
-import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/WidgetIndexParameterInterface";
 import { WidgetInterface } from "@models/interfaces/frontside/WidgetInterface";
 import { WidgetListInterface } from "@models/interfaces/frontside/WidgetListInterface";
-import { WidgetShowParameterInterface } from "@models/interfaces/frontside/WidgetShowParameterInterface";
+import { WidgetIndexParameterInterface } from "@models/interfaces/frontside/apiParameter/WidgetIndexParameterInterface";
+import { WidgetShowParameterInterface } from "@models/interfaces/frontside/apiParameter/WidgetShowParameterInterface";
 import Api from "@repositories/ApiClient";
 
 class WidgetApi {

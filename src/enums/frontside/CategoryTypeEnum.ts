@@ -1,4 +1,4 @@
-export enum CatagoryTypeEnum {
+export enum CategoryTypeEnum {
   MANGA = "manga",
   NOVEL = "novel",
 }

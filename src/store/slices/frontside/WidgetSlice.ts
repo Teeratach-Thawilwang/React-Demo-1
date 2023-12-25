@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
 
-import { WidgetSliceInterface } from "@models/interfaces/frontside/WidgetSliceInterface";
+import { WidgetSliceInterface } from "@models/interfaces/frontside/slices/WidgetSliceInterface";
 import WidgetAsyncThunk from "@store/asyncThunk/frontside/WidgetAsyncThunk";
 
 const initialState: WidgetSliceInterface = {

@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { CatagorySliceInterface } from "@models/interfaces/frontside/CatagorySliceInterface";
-import CatagoryService from "@services/frontside/CatagoryService";
+import { CategorySliceInterface } from "@models/interfaces/frontside/slices/CategorySliceInterface";
+import CategoryService from "@services/frontside/CategoryService";
 
 export default function CategoryDropDownCard(props: { isShow: boolean; onClick: (isShow: boolean) => void }) {
-  const categoryState = CatagoryService.getState();
+  const categoryState = CategoryService.getCategoryState();
   const elements = createCategoryChoice(categoryState);
 
   useEffect(() => {
     if (categoryState.catagories == null) {
-      CatagoryService.loadIndex({});
+      CategoryService.loadIndex({});
     }
   }, []);
 
@@ -47,9 +47,9 @@ const Item = styled.div`
   }
 `;
 
-function createCategoryChoice(state: CatagorySliceInterface) {
+function createCategoryChoice(state: CategorySliceInterface) {
   const navigate = useNavigate();
-  return state.catagories?.data.map((category) => {
+  return state.catagories?.map((category) => {
     return (
       <Item onClick={() => navigate(`/category/${category.slug}`)} key={category.id}>
         &ensp;{category.name}&ensp;

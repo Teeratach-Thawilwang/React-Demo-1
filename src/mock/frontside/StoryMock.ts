@@ -1,10 +1,10 @@
 import { faker } from "@faker-js/faker";
 
-import { CatagoryTypeEnum } from "@enums/frontside/CatagoryTypeEnum";
+import { CategoryTypeEnum } from "@enums/frontside/CategoryTypeEnum";
 import { ImageCollectionEnum } from "@enums/frontside/ImageCollectionEnum";
 import { ChapterListInterface } from "@models/interfaces/frontside/ChapterListInterface";
 import { StoryInterface } from "@models/interfaces/frontside/StoryInterface";
-import { StoryShowParameterInterface } from "@models/interfaces/frontside/StoryShowParameterInterface";
+import { StoryShowParameterInterface } from "@models/interfaces/frontside/apiParameter/StoryShowParameterInterface";
 
 class StoryMock {
   private data: StoryInterface = data;
@@ -52,7 +52,7 @@ const data: StoryInterface = {
   },
   score: faker.number.float({ min: 2, max: 5, precision: 0.1 }),
   view_count: faker.number.int({ min: 123456, max: 1000000 }),
-  type: CatagoryTypeEnum.MANGA,
+  type: CategoryTypeEnum.MANGA,
   cover_image: {
     id: 1,
     original: "/mock/widget/one-piece-web-cover-1.jpg",

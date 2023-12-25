@@ -1,7 +1,7 @@
 import StoryMock from "@mock/frontside/StoryMock";
 import { ChapterListInterface } from "@models/interfaces/frontside/ChapterListInterface";
 import { StoryInterface } from "@models/interfaces/frontside/StoryInterface";
-import { StoryShowParameterInterface } from "@models/interfaces/frontside/StoryShowParameterInterface";
+import { StoryShowParameterInterface } from "@models/interfaces/frontside/apiParameter/StoryShowParameterInterface";
 import api from "@repositories/ApiClient";
 
 class StoryApi {
